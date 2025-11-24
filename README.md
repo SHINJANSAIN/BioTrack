@@ -1,145 +1,108 @@
-# BioTrack
+# BioTrack: Laboratory Sample Inventory System
 
 ## Project Description
 
-In real-world lab environments, improper sample tracking can lead to:
+**BioTrack** is a console-based Laboratory Sample Inventory Management System designed to solve the challenge of manually tracking biological samples in research laboratories. The system provides an efficient, organized way for lab managers to manage samples such as blood, tissue, DNA, and cell cultures.
 
-Loss of valuable biological specimens
+In real-world research environments, improper sample tracking can lead to:
+- Loss of valuable biological specimens
+- Confusion about sample storage conditions
+- Delays in research due to misplaced samples
+- Inability to trace sample collection dates
 
-Confusion regarding storage conditions
-
-Delayed experiments and research workflows
-
-Inability to trace collection timelines
-
-BioTrack addresses these issues using a simple but powerful digital inventory with persistent data storage using file handling (data.txt).
+BioTrack addresses these problems by providing a simple yet effective digital inventory system that persists data using file handling, ensuring samples are never lost and can be easily retrieved by their unique identifiers.
 
 ## Domain
 
-Healthcare & Research (Bioengineering Application)
+**Healthcare & Research** (Bioengineering Application)
 
 ## Key Features
-1. Add Sample
 
-Register unique biological samples
+### 1. Add Sample
+- Register new biological samples with unique IDs
+- Capture essential information: Sample Type, Collection Date, Storage Temperature
+- Supported sample types: Blood, Tissue, DNA, Cell Culture
+- Automatic validation to prevent duplicate sample IDs
 
-Prevent duplicate Sample IDs
+### 2. Search Sample
+- Quick retrieval of sample information using unique Sample ID
+- Displays complete sample details when found
+- User-friendly error messages for non-existent samples
 
-Store: Sample Type, Collection Date, Storage Temperature
+### 3. Display All Samples
+- View complete inventory of all stored samples
+- Organized tabular format for easy reading
+- Shows all critical information at a glance
 
-2. Search Sample
+### 4. Remove Sample
+- Delete samples from the inventory using Sample ID
+- Confirmation messages for successful removal
+- Safe handling of non-existent sample removal attempts
 
-Retrieve detailed sample information by ID
+### 5. Data Persistence
+- Automatic save functionality using file I/O
+- Data stored in `data.txt` file
+- Samples remain available even after program closure
+- Automatic loading of existing inventory on program startup
 
-Helpful error messages for missing samples
-
-3. Display All Samples
-
-View samples in a tabular, readable format
-
-Shows entire inventory at a glance
-
-4. Remove Sample
-
-Delete samples by ID
-
-Confirmations for safe removal
-
-5. Data Persistence
-
-Saves all data into data.txt
-
-Automatically loads inventory on startup
-
-6. User-Friendly Console Interface
-
-Menu-driven navigation
-
-Input validation
-
-Clean, professional formatting
+### 6. User-Friendly Console Interface
+- Simple menu-driven navigation
+- Clear prompts and instructions
+- Input validation and error handling
+- Professional formatting for better readability
 
 ## Real-World Application
 
-This system is ideal for:
-
-Academic Research Labs – tracking experimental samples
-
-Hospital Pathology Departments – managing patient samples
-
-Pharmaceutical Companies – storing research specimens
-
-Biotech Startups – organizing cell culture stocks
-
-Teaching Labs – introducing sample management workflows
+This system is directly applicable to:
+- **Academic Research Labs**: Track samples for ongoing experiments
+- **Hospital Pathology Departments**: Manage patient tissue and blood samples
+- **Pharmaceutical Companies**: Monitor biological specimens during drug development
+- **Biotech Startups**: Organize cell culture inventories
+- **Teaching Labs**: Educational tool for students learning inventory management
 
 ## Technology Stack
 
-Language: Core Java (JDK 8+)
-
-File Storage: Text File (data.txt)
-
-Design: OOP (modular class architecture)
-
-No External Dependencies – Pure Java
-
-## Project Structure
-BioTrack-Project/
-├── .git/                         
-├── src/
-│   ├── Main.java                  
-│   ├── Sample.java                
-│   └── InventoryManager.java      
-├── screenshots/
-│   ├── main_menu.png              
-│   ├── add_sample.png             
-│   └── view_all.png               
-├── README.md                      
-└── data.txt                       
+- **Language**: Core Java (JDK 8 or higher)
+- **Data Storage**: File I/O (Text file handling)
+- **Design Pattern**: Object-Oriented Programming with modular class structure
+- **No External Dependencies**: Pure Java implementation
 
 
-README
 
-## How to Run the Project
-Prerequisites
+## How to Run
 
-JDK 8 or higher
+### Prerequisites
+- Java Development Kit (JDK) 8 or higher installed
+- Command line interface (Terminal/Command Prompt)
+- Text editor or IDE (optional, for viewing/modifying code)
 
-Command Prompt / Terminal
-
-Text editor or IDE (optional)
-
-Steps
-Step 1: Clone or Download
+### Step 1: Clone or Download the Repository
 git clone https://github.com/SHINJANSAIN/BioTrack/tree/main
 cd BioTrack-Project
 
-Step 2: Navigate to src/
+### Step 2: Navigate to the Source Directory
 cd src
 
-Step 3: Compile
+### Step 3: Compile the Java Files
 javac Main.java Sample.java InventoryManager.java
 
-Step 4: Run
+### Step 4: Run the Application
 java Main
 
-Step 5: Use Menu
-
-You can now:
-
-Add Samples
-
-Search Samples
-
-View All Samples
-
-Remove Samples
-
-Exit (auto-save data)
+### Step 5: Use the Application
+Follow the on-screen menu to:
+1. Add new samples
+2. Search for samples by ID
+3. View all samples
+4. Remove samples
+5. Exit (data auto-saves)
 
 ## Usage Example
+
+```text
 ========================================
-BioTrack: Lab Inventory System
+    BioTrack: Lab Inventory System
+========================================
 1. Add Sample
 2. Search Sample by ID
 3. Display All Samples
@@ -148,131 +111,108 @@ BioTrack: Lab Inventory System
 ========================================
 Enter your choice: 1
 
-Example Input:
 --- Add New Sample ---
 Enter Sample ID: SAM001
-Enter Sample Type: Blood
-Enter Collection Date: 24-11-2024
-Enter Storage Temperature: -20
-✓ Sample added successfully!
+Enter Sample Type (Blood/Tissue/DNA/Cell): Blood
+Enter Collection Date (DD-MM-YYYY): 24-11-2024
+Enter Storage Temperature (°C): -20
 
-Example data.txt Content:
+✓ Sample added successfully!
+```
+
+## Sample Data Format
+
+The `data.txt` file stores data in CSV format:
+```
 SAM001,Blood,24-11-2024,-20.0
 SAM002,Tissue,23-11-2024,-80.0
 SAM003,DNA,22-11-2024,4.0
-
-
-README
+```
 
 ## Class Structure Explanation
+
 ### 1. Sample.java (Model Class)
+- Represents a single biological sample
+- Contains attributes: sampleId, sampleType, collectionDate, storageTemp
+- Implements getters and setters for encapsulation
+- Provides toString() method for easy display
 
-Represents a biological specimen
-
-Stores: ID, Type, Date, Temperature
-
-Implements encapsulation with getters/setters
-
-Provides toString() for clean display
-
-### 2. InventoryManager.java (Business Logic)
-
-Manages ArrayList of samples
-
-Implements CRUD operations:
-
-addSample()
-
-searchSample()
-
-displayAllSamples()
-
-removeSample()
-
-Handles file I/O: saving & loading
+### 2. InventoryManager.java (Business Logic Class)
+- Manages the collection of Sample objects using ArrayList
+- Implements CRUD operations:
+  - **addSample()**: Adds new sample with duplicate checking
+  - **searchSample()**: Finds sample by ID
+  - **displayAllSamples()**: Shows all inventory
+  - **removeSample()**: Deletes sample by ID
+- Handles file I/O operations:
+  - **saveToFile()**: Writes inventory to data.txt
+  - **loadFromFile()**: Reads inventory from data.txt on startup
 
 ### 3. Main.java (Entry Point)
-
-Runs menu loop
-
-Handles user input
-
-Calls InventoryManager methods
+- Contains the main() method
+- Displays user menu in a loop
+- Handles user input and calls appropriate InventoryManager methods
+- Ensures data is saved before exit
 
 ## Learning Outcomes
 
-By completing this project, you learn:
-
-OOP (Encapsulation, Abstraction)
-
-Java File Handling (BufferedReader, BufferedWriter)
-
-Dynamic Data Structures (ArrayList)
-
-Exception Handling
-
-Modular application design
-
-User input handling
-
-Data persistence
-
-Documentation & Git usage
-
-README
+By building and understanding this project, you will learn:
+- **OOP Concepts**: Classes, Objects, Encapsulation, Abstraction
+- **File Handling**: Reading and writing data using FileReader, FileWriter, BufferedReader, BufferedWriter
+- **Data Structures**: ArrayList for dynamic data management
+- **Exception Handling**: Try-catch blocks for robust error handling
+- **User Input**: Scanner class for console input
+- **Modular Design**: Separation of concerns with multiple classes
+- **Data Persistence**: Saving and loading application state
 
 ## Future Enhancements
 
-Sample expiry tracking
-
-Search by sample type
-
-Sorting features
-
-Backup system
-
-User authentication
-
-Report generation
-
-Barcode integration
-
-GUI using Java Swing
+Potential improvements for advanced learning:
+- Add sample expiry date tracking
+- Implement search by sample type
+- Add sorting functionality (by date, type, temperature)
+- Create backup functionality
+- Add user authentication
+- Generate reports (samples by type, low stock alerts)
+- Implement barcode integration
+- Add GUI using Java Swing
 
 ## Troubleshooting
-Issue: "Cannot find symbol"
 
-Ensure all .java files are inside src/
+### Issue: "Cannot find symbol" error during compilation
+**Solution**: Ensure all three .java files are in the same directory and compile them together.
 
-Compile all files together
+### Issue: Data not saving between runs
+**Solution**: Check that the program has write permissions in the directory. The data.txt file should be in the project root.
 
-Issue: Data not saving
-
-Ensure program has write permission
-
-Issue: FileNotFoundException
-
-Normal on first run; program creates data.txt automatically
+### Issue: FileNotFoundException
+**Solution**: This is normal on first run. The program creates data.txt automatically if it doesn't exist.
 
 ## Contributing
 
-Fork repository
-
-Create a feature branch
-
-Commit changes
-
-Push branch
-
-Create pull request
+Contributions are welcome! To contribute:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add YourFeature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a Pull Request
 
 ## License
 
-Educational use only. Free to modify and improve.
+This project is created for educational purposes. Feel free to use and modify for learning.
 
 ## Author
 
 SHINJAN SAIN
-GitHub: https://github.com/SHINJANSAIN/BioTrack/tree/main
+- GitHub: https://github.com/SHINJANSAIN
 
-Registration No: 24BOE10040
+
+## Acknowledgments
+
+- Inspired by real-world laboratory management needs
+- Built as part of bioengineering coursework
+- Thanks to the Java community for excellent documentation
+
+---
+
+**Note**: This is a console-based application designed for simplicity and educational purposes. For production use in actual laboratories, consider adding database integration, enhanced security, and GUI interface.
